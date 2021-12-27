@@ -1,6 +1,6 @@
 on:
   rss:
-    url: https://hnrss.org/newest?points=300&count=3
+    url: https://hnrss.org/newest?points=300&count=10
 jobs:
   print:
     name: Print
@@ -15,3 +15,13 @@ jobs:
           echo title: $title
           echo contentSnippet: $contentSnippet
           echo link: $link
+  discord:
+    name: Send a message to discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_NEWS }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: '${{ on.rss.outputs.title }} ${{ on.rss.outputs.link }}'
