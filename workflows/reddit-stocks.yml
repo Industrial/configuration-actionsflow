@@ -4,6 +4,7 @@ on:
     source: json
     client: puppeteer-fetch
     config:
+      active: false
       exportOutputs: true
       outputsMode: combine
       filterScript: |

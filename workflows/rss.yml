@@ -4,19 +4,19 @@ on:
     config:
       active: true
 jobs:
-  print:
-    name: Print
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Outputs
-        env:
-          title: ${{on.rss.outputs.title}}
-          contentSnippet: ${{on.rss.outputs.contentSnippet}}
-          link: ${{on.rss.outputs.link}}
-        run: |
-          echo title: $title
-          echo contentSnippet: $contentSnippet
-          echo link: $link
+  # print:
+  #   name: Print
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Print Outputs
+  #       env:
+  #         title: ${{on.rss.outputs.title}}
+  #         contentSnippet: ${{on.rss.outputs.contentSnippet}}
+  #         link: ${{on.rss.outputs.link}}
+  #       run: |
+  #         echo title: $title
+  #         echo contentSnippet: $contentSnippet
+  #         echo link: $link
   discord:
     name: Send a message to discord
     runs-on: ubuntu-latest

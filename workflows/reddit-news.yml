@@ -2,7 +2,7 @@ on:
   reddit:
     url: https://reddit.com/r/news/
     config:
-      active: true
+      active: false
 jobs:
   discord:
     name: Send a message to discord
