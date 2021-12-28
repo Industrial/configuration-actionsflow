@@ -2,7 +2,7 @@ on:
   reddit:
     url: https://reddit.com/r/news/
     config:
-      active: false
+      active: true
 jobs:
   discord:
     name: Send a message to discord
@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Discord notification
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_NEWS }}
+          DISCORD_WEBHOOK: '${{ secrets.DISCORD_WEBHOOK_NEWS }}'
+          TEXT_MESSAGE: 'Reddit: ${{on.reddit.outputs.title }} ${{ on.reddit.outputs.link }}'
         uses: Ilshidur/action-discord@master
         with:
-          args: '${{ on.reddit.outputs.title }} ${{ on.reddit.outputs.link }}'
-
+          args: '${{env.TEXT_MESSAGE}}'

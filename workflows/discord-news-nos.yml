@@ -1,0 +1,17 @@
+on:
+  rss:
+    url: http://feeds.nos.nl/nosnieuwsalgemeen
+    config:
+      active: true
+jobs:
+  discord:
+    name: Send a message to discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: '${{ secrets.DISCORD_WEBHOOK_NEWS }}'
+          TEXT_MESSAGE: 'NOS: ${{on.rss.outputs.title }} ${{ on.rss.outputs.link }}'
+        uses: Ilshidur/action-discord@master
+        with:
+          args: '${{env.TEXT_MESSAGE}}'
