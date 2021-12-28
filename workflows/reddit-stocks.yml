@@ -20,6 +20,7 @@ jobs:
       - name: Get outputs
         uses: actions/github-script@v2
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           OUTPUTS_PATH: ${{ on.reddit.outputs.path }}
         with:
           script: |

@@ -2,7 +2,7 @@ on:
   rss:
     url: https://hnrss.org/newest?points=300&count=10
     config:
-      active: false
+      active: true
 jobs:
   print:
     name: Print
