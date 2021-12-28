@@ -24,6 +24,7 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_NEWS }}
+          TEXT_MESSAGE: ${{ on.rss.outputs.title }} ${{ on.rss.outputs.link }}
         uses: Ilshidur/action-discord@master
         with:
-          args: '${{ on.rss.outputs.title }} ${{ on.rss.outputs.link }}'
+          args: ${{env.TEXT_MESSAGE}}
