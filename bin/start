@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/data -p 3001:3000 actionsflow/actionsflow
+#docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/data -p 3001:3000 actionsflow/actionsflow
+
+npm run start
